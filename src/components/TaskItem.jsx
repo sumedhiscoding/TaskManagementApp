@@ -25,6 +25,9 @@ const TaskItem = ({item,index}) => {
           }}
         >
           {item.content}
+          
+
+
         </Card>
       );
     }}
