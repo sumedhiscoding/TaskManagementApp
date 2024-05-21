@@ -42,7 +42,7 @@ const TaskForm = (props) => {
           ...columns.todos,
           items: [
             ...columns.todos.items,
-            { id: sum.toString(), content: values.title },
+            { id: sum.toString(), title: values.title , description:values.description , priority:values.priority},
           ],
         },
       };

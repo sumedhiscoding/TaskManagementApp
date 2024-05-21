@@ -1,7 +1,7 @@
 export const tasks = [
-    { id: "1", content: "First task" },
-    { id: "2", content: "Second task" },
-    { id: "3", content: "Third task" },
+    { id: "1", title: "First task", description:"lorem ipsum akdnfkajsf kadjfaskd fkajdf", priority:"high" },
+    { id: "2", title: "Second task", description:"lorem ipsum akdnfkajsf kadjfaskd fkajdf", priority:"low" },
+    { id: "3", title: "Third task", description:"lorem ipsum akdnfkajsf kadjfaskd fkajdf", priority:"medium" },
     // { id: "4", content: "Fourth task" },
     // { id: "5", content: "Fifth task" },
     // { id: "6", content: "Sixth task" },

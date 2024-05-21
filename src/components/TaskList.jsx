@@ -1,15 +1,20 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { DragDropContext, Draggable, Droppable } from "react-beautiful-dnd";
-import { Box, Button, Card, Modal, Typography,Container } from "@mui/material";
+import { Box, Button, Card, Modal, Typography, Container } from "@mui/material";
 import TaskItem from "./TaskItem";
 import { FaPlus } from "react-icons/fa";
 import TaskForm from "./TaskForm";
 import { flexbox } from "@mui/system";
 const TaskList = (props) => {
-  const { columns,setColumns } = props;
+  const { columns, setColumns } = props;
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
+  useEffect(() => {
+    console.log("columsns", columns)
+
+  }, [columns])
+
   return (
     <>
       {Object.entries(columns).map(([columnId, column], index) => {
@@ -26,15 +31,18 @@ const TaskList = (props) => {
             key={columnId}
           >
             <Box sx={{ fontSize: "1.5rem" }}>
-              {column.name}
+              <Typography variant="h4" color="white">
+                {column.name}
               {column.name == "Todos" ? (
-                <Button onClick={handleOpen}>
-                  <FaPlus />{" "}
+                <Button style={{marginLeft:"1rem"}} color="inherit" onClick={handleOpen} variant="contained">
+                  <FaPlus color="#3B3B3B" />{" "}
                 </Button>
               ) : (
                 ""
               )}
-             <TaskForm handleClose={handleClose} handleOpen={handleOpen} open={open} columns={columns}/>
+              </Typography>
+
+              <TaskForm handleClose={handleClose} setColumns={setColumns} handleOpen={handleOpen} open={open} columns={columns} />
             </Box>
 
             <div style={{ margin: 8 }}>
@@ -47,8 +55,8 @@ const TaskList = (props) => {
                       ref={provided.innerRef}
                       style={{
                         background: snapshot.isDraggingOver
-                          ? "#534B62"
-                          : "#A499B3",
+                          ? "#525252"
+                          : "#AEAEAE",
                         padding: 4,
                         width: 250,
                         minHeight: 500,
@@ -58,7 +66,7 @@ const TaskList = (props) => {
                       {/* this is individual item that will present in the tasklist container */}
                       {column.items.map((item, index) => {
                         return (
-                          <TaskItem key={index} item={item} index={index}  />
+                          <TaskItem key={index} item={item} index={index} />
                         );
                       })}
                       {provided.placeholder}

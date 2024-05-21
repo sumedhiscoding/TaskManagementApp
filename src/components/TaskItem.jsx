@@ -1,7 +1,8 @@
 import React from 'react'
 import { DragDropContext, Draggable, Droppable } from "react-beautiful-dnd";
-import {Card,Box} from "@mui/material"
+import {Card,Box, Typography} from "@mui/material"
 const TaskItem = ({item,index}) => {
+  console.log("item",item)
   return (
     <Draggable
     key={item.id}
@@ -24,10 +25,10 @@ const TaskItem = ({item,index}) => {
             ...provided.draggableProps.style
           }}
         >
-          {item.content}
-          
-
-
+          <Typography variant="h5" color="#3B3B3B">{item.title}</Typography>
+          <Typography variant="h6" color="InfoText">
+            {item.description}
+          </Typography>
         </Card>
       );
     }}
