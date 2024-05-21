@@ -1,4 +1,5 @@
 # React + Vite
+![image](https://github.com/sumedhiscoding/TaskManagementApp/assets/66994315/da455c32-7eda-4a96-83cd-2f411205f3e5)
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
